@@ -56,7 +56,7 @@ jobs:
         run: python medication_reminder_bot.py
 
   evening-reminder:
-    if: github.event.schedule == '50 15 * * *'  # Run only at 9:20 PM IST
+    if: github.event.schedule == '45 12 * * *'  # Run only at 9:20 PM IST
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
