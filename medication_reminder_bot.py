@@ -9,9 +9,9 @@ MESSAGE_INDEX = os.environ.get('MESSAGE_INDEX')  # Determines which message to s
 
 # Medication reminder messages
 REMINDER_MESSAGES = [
-    "Hey, it's time to take your morning medication! 💊",
-    "Time for your afternoon medication! 💊",
-    "Don't forget your evening medication before bed! 💊"
+    "Subah ki Dwaai khaa li kya!",
+    "Dupehar ki dwaai khaa li kya ",
+    "Khana & Raat ki dwaai kha li kya 💊"
 ]
 
 async def send_medication_reminder():
