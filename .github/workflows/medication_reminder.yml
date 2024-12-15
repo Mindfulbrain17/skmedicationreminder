@@ -4,7 +4,7 @@ on:
   schedule:
     - cron: '30 4 * * *'   # 10:00 AM IST (4:30 AM UTC) - Morning Reminder
     - cron: '25 7 * * *'   # 12:55 PM IST (7:25 AM UTC) - Afternoon Reminder
-    - cron: '50 15 * * *'  # 9:20 PM IST (3:50 PM UTC) - Evening Reminder
+    - cron: '45 12 * * *'  # 9:20 PM IST (3:50 PM UTC) - Evening Reminder
 
 jobs:
   morning-reminder:
