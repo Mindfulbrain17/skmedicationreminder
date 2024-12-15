@@ -2,34 +2,79 @@ name: Medication Reminder Bot
 
 on:
   schedule:
-    - cron: '30 4 * * *'   # 10:00 AM IST (4:30 AM UTC) - Morning
-    - cron: '30 10 * * *'   # 1:00 PM IST (7:30 AM UTC) - Afternoon
-    - cron: '30 15 * * *'  # 9:00 PM IST (3:30 PM UTC) - Evening
+    - cron: '30 4 * * *'   # 10:00 AM IST (4:30 AM UTC) - Morning Reminder
+    - cron: '25 7 * * *'   # 12:55 PM IST (7:25 AM UTC) - Afternoon Reminder
+    - cron: '50 15 * * *'  # 9:20 PM IST (3:50 PM UTC) - Evening Reminder
 
 jobs:
-  send-reminder:
+  morning-reminder:
+    if: github.event.schedule == '30 4 * * *'   # Run only at 10:00 AM IST
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        message_index: [0, 1, 2]  # Indices for morning, afternoon, and evening messages
-
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-    - name: Set up Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.10'
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
 
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install python-telegram-bot
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install python-telegram-bot
 
-    - name: Run Medication Reminder Bot
-      env:
-        TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-        TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-        MESSAGE_INDEX: ${{ matrix.message_index }}
-      run: python medication_reminder_bot.py
+      - name: Send Morning Reminder
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          MESSAGE_INDEX: 0
+        run: python medication_reminder_bot.py
+
+  afternoon-reminder:
+    if: github.event.schedule == '25 7 * * *'   # Run only at 12:55 PM IST
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install python-telegram-bot
+
+      - name: Send Afternoon Reminder
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          MESSAGE_INDEX: 1
+        run: python medication_reminder_bot.py
+
+  evening-reminder:
+    if: github.event.schedule == '50 15 * * *'  # Run only at 9:20 PM IST
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install python-telegram-bot
+
+      - name: Send Evening Reminder
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          MESSAGE_INDEX: 2
+        run: python medication_reminder_bot.py
