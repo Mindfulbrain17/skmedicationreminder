@@ -7,9 +7,9 @@ This project is a **Telegram bot** that automatically sends daily medication rem
 ## **Features**
 - Sends automated medication reminder messages to a **Telegram group**.
 - Scheduled at three specific times daily:
-  - **08:55 AM**  
+  - **08:50 AM**  
   - **12:55 PM**  
-  - **9:20 PM**
+  - **8:55 PM**
 - Runs automatically using **GitHub Actions** as a cron job.
 - Secure implementation using **GitHub Secrets** to hide sensitive data.
 
@@ -64,9 +64,9 @@ name: Medication Reminder Bot
 
 on:
   schedule:
-    - cron: '53 9 * * *'    # 10:00 AM (adjusted for delays)
-    - cron: '48 12 * * *'   # 12:55 PM
-    - cron: '13 21 * * *'   # 9:20 PM
+    - cron: '20 3 * * *'   # 8:50 AM IST (3:20 AM UTC) - Morning Reminder
+    - cron: '25 7 * * *'   # 12:55 PM IST (7:25 AM UTC) - Afternoon Reminder
+    - cron: '25 15 * * *'  # 8:55 PM IST (3:25 PM UTC) - Evening Reminder
 
 jobs:
   send-reminder:
