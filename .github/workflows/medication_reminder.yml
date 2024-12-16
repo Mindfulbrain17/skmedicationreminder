@@ -2,9 +2,9 @@ name: Medication Reminder Bot
 
 on:
   schedule:
-    - cron: '25 3 * * *'   # 10:00 AM IST (4:30 AM UTC) - Morning Reminder
-    - cron: '50 7 * * *'   # 13:20 PM IST (7:50 AM UTC) - Afternoon Reminder
-    - cron: '45 12 * * *'  # 9:20 PM IST (3:50 PM UTC) - Evening Reminder
+    - cron: '20 3 * * *'   # 8:50 AM IST (3:20 AM UTC) - Morning Reminder
+    - cron: '25 7 * * *'   # 12:55 PM IST (7:25 AM UTC) - Afternoon Reminder
+    - cron: '25 15 * * *'  # 8:55 PM IST (3:25 PM UTC) - Evening Reminder
 
 jobs:
   morning-reminder:
