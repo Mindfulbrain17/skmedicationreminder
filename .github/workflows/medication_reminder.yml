@@ -8,7 +8,7 @@ on:
 
 jobs:
   morning-reminder:
-    if: github.event.schedule == '30 4 * * *'   # Run only at 10:00 AM IST
+    if: github.event.schedule == '20 3 * * *'   # Match the updated cron schedule
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -32,7 +32,7 @@ jobs:
         run: python medication_reminder_bot.py
 
   afternoon-reminder:
-    if: github.event.schedule == '25 7 * * *'   # Run only at 12:55 PM IST
+    if: github.event.schedule == '25 7 * * *'   # Match the updated cron schedule
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -56,7 +56,7 @@ jobs:
         run: python medication_reminder_bot.py
 
   evening-reminder:
-    if: github.event.schedule == '45 12 * * *'  # Run only at 9:20 PM IST
+    if: github.event.schedule == '25 15 * * *'  # Match the updated cron schedule
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
