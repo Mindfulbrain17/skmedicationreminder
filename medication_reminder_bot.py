@@ -1,13 +1,11 @@
 import os
 import asyncio
 from telegram import Bot
-from telegram.error import TelegramError
-from datetime import datetime
 
 # Retrieve bot token, group chat ID, and message index from environment variables
 BOT_TOKEN = os.environ.get('TELEGRAM_BOT_TOKEN')
 CHAT_ID = os.environ.get('TELEGRAM_CHAT_ID')
-MESSAGE_INDEX = os.environ.get('MESSAGE_INDEX', "0")  # Default to 0 if not set
+MESSAGE_INDEX = os.environ.get('MESSAGE_INDEX')  # Determines which message to send
 
 # Medication reminder messages
 REMINDER_MESSAGES = [
@@ -24,7 +22,7 @@ async def send_medication_reminder():
         return
     
     # Validate message index
-    if MESSAGE_INDEX is None or MESSAGE_INDEX.strip() == "" or not MESSAGE_INDEX.isdigit():
+    if MESSAGE_INDEX is None or not MESSAGE_INDEX.isdigit():
         print("Error: Missing or invalid MESSAGE_INDEX.")
         return
     
@@ -35,16 +33,12 @@ async def send_medication_reminder():
 
     # Initialize the bot and send the message
     bot = Bot(token=BOT_TOKEN)
-    now = datetime.now().strftime("%H:%M %p")  # Current time
-    message = f"{REMINDER_MESSAGES[message_index]} (Sent at {now})"
-
+    message = REMINDER_MESSAGES[message_index]
     try:
         await bot.send_message(chat_id=CHAT_ID, text=message)
         print(f"Sent reminder: {message}")
-    except TelegramError as e:
-        print(f"Telegram Error: {e}")
     except Exception as e:
-        print(f"Unexpected error: {e}")
+        print(f"Error sending reminder: {e}")
 
 if __name__ == '__main__':
     asyncio.run(send_medication_reminder())
