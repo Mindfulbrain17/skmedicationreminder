@@ -10,7 +10,7 @@ CHAT_ID = os.environ.get('TELEGRAM_CHAT_ID')
 REMINDER_MESSAGES = [
     "Subah ki Dwaai khaa li kya!",
     "Dupehar ki dwaai khaa li kya",
-    "Khana & Raat ki dwaai kha li kya 💊"
+    "Khana khaa liya kya"
 ]
 
 async def send_evening_reminder():
