@@ -11,7 +11,7 @@ EVENING_MESSAGES = [
     "AG aur SK, khana khaoge ya sirf reels dekh kar bhook mitane ka plan hai?",
     "Khana kha liya kya, Swati Kulshrestha & Anant Goyal?",
     "Anant Kulshrestha aur Swati Goyal, khana khaya ya phir se busy ho?",
-    "AG & SK, khana kaisa tha ya abhi tak nahi khaya?",
+    "SK & AG, khana kaisa tha ya abhi tak nahi khaya?",
     "Swati Goyal, tumne khana khaya? AG ka pata hai?",
     "Anant Goyal and Swati Kulshrestha, kha liya khana ya sirf baatein chal rahi hain?",
     "Swati Kulshrestha aur Anant Goyal, kya aap log abhi bhi bhookhe hain?",
