@@ -7,6 +7,9 @@ on:
 jobs:
   evening-reminder:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write  # Allow the workflow to write to the repository
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
