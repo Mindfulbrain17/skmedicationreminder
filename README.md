@@ -83,10 +83,10 @@ This project is a highly customizable Telegram bot designed to send medication r
 ## Example Messages
 Here are some examples of the rotating evening messages:
 
-- "AG aur SK, khana khaoge ya sirf reels dekh kar bhook mitane ka plan hai?"
-- "Khana kha liya kya, Swati Kulshrestha & Anant Goyal?"
-- "Swati Kulshrestha aur Anant Goyal, kya aap log abhi bhi bhookhe hain?"
-- "AG & SK, khana kaisa tha ya abhi tak nahi khaya?"
+- "X and Y, have you eaten dinner yet, or are you still scrolling through memes?"
+- "X, did you remind Y to have dinner, or are you both skipping it again?"
+- "X and Y, what’s cooking? Hopefully, not just excuses!"
+- "Y, remind X to have dinner. It's a team effort!"
 
 You can replace these with your own custom messages as per your needs.
 
