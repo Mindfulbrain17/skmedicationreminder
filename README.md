@@ -1,161 +1,106 @@
-# Medication Reminder Telegram Bot
+# Medication Reminder Bot
 
-This project is a **Telegram bot** that automatically sends daily medication reminders to a Telegram group at specific times. The bot ensures that reminders are sent on time without any manual intervention.
+This project is a highly customizable Telegram bot designed to send medication reminder messages to a group or individual at a specified time daily. It is automated using GitHub Actions and supports features such as cyclic message rotation and customizable message content.
 
----
+## Key Features
 
-## **Features**
-- Sends automated medication reminder messages to a **Telegram group**.
-- Scheduled at three specific times daily:
-  - **08:50 AM**  
-  - **12:55 PM**  
-  - **8:55 PM**
-- Runs automatically using **GitHub Actions** as a cron job.
-- Secure implementation using **GitHub Secrets** to hide sensitive data.
+### 1. **Daily Reminder System**
+- Sends a single reminder message every day at a fixed time (8:55 PM IST / 3:25 PM UTC).
+- Reminder time is managed via GitHub Actions' cron jobs.
 
----
+### 2. **Rotating Messages System**
+- The bot cycles through a predefined list of 15 messages.
+- Messages are sent one by one each day.
+- After completing the 15th message, the bot starts again from the first message, ensuring continuity.
 
-## **How It Works**
-1. **Bot Creation**: A Telegram bot is created using [BotFather](https://core.telegram.org/bots#botfather), which provides a **Bot Token**.
-2. **Group Setup**: Add the bot to a **Telegram group** where reminders are to be sent.
-3. **Python Script**: A Python script is used to send predefined messages at specified times.
-4. **Automation**: GitHub Actions is configured to run the script at the desired times using a **cron schedule**.
-5. **Security**: Sensitive credentials like the Bot Token and Group Chat ID are stored securely using **GitHub Secrets**.
+### 3. **Customizable Messages**
+- Users can easily modify the 15 predefined messages in the `EVENING_MESSAGES` list of the Python script.
+- Each message is carefully crafted to ensure engagement and reminders.
 
----
+### 4. **Fully Automated**
+- The bot runs on GitHub Actions and does not require manual intervention once deployed.
+- Automatically updates the `message_index.txt` file in the repository to keep track of the next message to be sent.
 
-## **Prerequisites**
-- A Telegram bot created via BotFather.
-- A Telegram group with the bot added.
-- A GitHub account for automation.
+### 5. **Telegram API Integration**
+- Uses the Telegram Bot API to send messages to a specified chat group or individual.
+- Bot token and chat ID are securely managed using GitHub Secrets.
 
----
+### 6. **Lightweight and Efficient**
+- Minimal dependencies (`python-telegram-bot` library).
+- Designed to be simple and highly maintainable.
 
-## **Setup Instructions**
+## Setup Instructions
 
-### **Step 1: Clone the Repository**
-```bash
-git clone https://github.com/your-username/medication-reminder-bot.git
-cd medication-reminder-bot
-```
+### Prerequisites
+1. A Telegram bot token obtained from the [BotFather](https://core.telegram.org/bots#botfather).
+2. The chat ID of the group or individual where the reminders will be sent.
+3. A GitHub repository to host the project.
 
-### **Step 2: Create a Telegram Bot**
-1. Open Telegram and search for `BotFather`.
-2. Send `/newbot` to create a new bot.
-3. Follow the instructions and copy the provided **Bot Token**.
+### Steps to Deploy
 
-### **Step 3: Add the Bot to a Group**
-1. Create a new Telegram group.
-2. Add the bot you created to this group.
-3. Send a message in the group and note the **Chat ID** using tools like [getids bot](https://t.me/getidsbot).
+1. **Clone the Repository**
+   ```bash
+   git clone https://github.com/your-username/medication-reminder-bot.git
+   cd medication-reminder-bot
+   ```
 
-### **Step 4: Store Secrets in GitHub**
-1. Go to your GitHub repository.
-2. Navigate to `Settings > Secrets and variables > Actions`.
-3. Add the following secrets:
-   - `TELEGRAM_BOT_TOKEN`: Your bot's token.
-   - `TELEGRAM_CHAT_ID`: The group chat ID.
+2. **Modify the Message List**
+   Update the `EVENING_MESSAGES` list in `medication_reminder_bot.py` with your custom messages.
 
-### **Step 5: Configure GitHub Actions**
-The workflow file `medication_reminder.yml` is already configured. It looks like this:
+3. **Add Secrets to GitHub**
+   - Navigate to your repository on GitHub.
+   - Go to **Settings > Secrets and variables > Actions > New repository secret**.
+   - Add the following secrets:
+     - `TELEGRAM_BOT_TOKEN`: Your Telegram bot token.
+     - `TELEGRAM_CHAT_ID`: The chat ID of the recipient group or individual.
 
-```yaml
-name: Medication Reminder Bot
+4. **Push the Code to GitHub**
+   Commit and push the modified code to your GitHub repository.
 
-on:
-  schedule:
-    - cron: '20 3 * * *'   # 8:50 AM IST (3:20 AM UTC) - Morning Reminder
-    - cron: '25 7 * * *'   # 12:55 PM IST (7:25 AM UTC) - Afternoon Reminder
-    - cron: '25 15 * * *'  # 8:55 PM IST (3:25 PM UTC) - Evening Reminder
+5. **Set Up GitHub Actions Workflow**
+   The workflow is already configured in `.github/workflows/medication_reminder.yml` to run daily at 8:55 PM IST (3:25 PM UTC).
 
-jobs:
-  send-reminder:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
+### Project Files
 
-    - name: Set up Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.10'
+- `medication_reminder_bot.py`: The main script for sending Telegram messages.
+- `message_index.txt`: Keeps track of the last message sent (automatically updated by the script).
+- `.github/workflows/medication_reminder.yml`: GitHub Actions workflow configuration.
 
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install python-telegram-bot
+## How It Works
 
-    - name: Run Medication Reminder Bot
-      env:
-        TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-        TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-      run: python medication_reminder_bot.py
-```
+1. **Message Sending Logic**
+   - The bot reads the current `message_index` from `message_index.txt`.
+   - Sends the message corresponding to that index from the `EVENING_MESSAGES` list.
+   - Updates `message_index.txt` to the next index.
 
-### **Step 6: Run the Bot**
-- Push the code to your GitHub repository.
-- GitHub Actions will automatically run at the specified times to send reminders.
+2. **Cyclic Messaging**
+   - When the `message_index` exceeds the number of messages in `EVENING_MESSAGES`, it resets to `0`, ensuring the messages loop back to the beginning.
 
----
+3. **GitHub Actions Automation**
+   - The workflow runs the Python script daily at the scheduled time.
+   - Ensures consistent message delivery without manual intervention.
 
-## **Python Script**
-Below is the main Python script (`medication_reminder_bot.py`) that sends messages:
+## Example Messages
+Here are some examples of the rotating evening messages:
 
-```python
-import os
-import asyncio
-from telegram import Bot
+- "AG aur SK, khana khaoge ya sirf reels dekh kar bhook mitane ka plan hai?"
+- "Khana kha liya kya, Swati Kulshrestha & Anant Goyal?"
+- "Swati Kulshrestha aur Anant Goyal, kya aap log abhi bhi bhookhe hain?"
+- "AG & SK, khana kaisa tha ya abhi tak nahi khaya?"
 
-# Retrieve bot token and group chat ID from environment variables
-BOT_TOKEN = os.environ.get('TELEGRAM_BOT_TOKEN')
-CHAT_ID = os.environ.get('TELEGRAM_CHAT_ID')
+You can replace these with your own custom messages as per your needs.
 
-# Medication reminder messages
-REMINDER_MESSAGES = [
-    "Hey, it's time to take your morning medication! 💊",
-    "Time for your afternoon medication! 💊",
-    "Don't forget your evening medication before bed! 💊"
-]
+## Future Improvements
+- Add support for sending completely random messages from the list instead of cycling through them sequentially.
+- Implement a web interface for managing messages and schedules.
+- Enhance logging and monitoring capabilities for debugging and analytics.
 
-async def send_medication_reminder(bot, message):
-    try:
-        await bot.send_message(chat_id=CHAT_ID, text=message)
-        print(f"Sent reminder: {message}")
-    except Exception as e:
-        print(f"Error sending reminder: {e}")
-
-async def main():
-    # Initialize the Telegram bot
-    bot = Bot(token=BOT_TOKEN)
-    # Index-based message sending for different times
-    current_hour = int(os.environ.get('HOUR_INDEX', 0))
-    await send_medication_reminder(bot, REMINDER_MESSAGES[current_hour])
-
-if __name__ == '__main__':
-    asyncio.run(main())
-```
-
----
-
-## **Testing and Troubleshooting**
-- Ensure the bot is added to the group and not blocked.
-- Verify `TELEGRAM_BOT_TOKEN` and `TELEGRAM_CHAT_ID` are correct.
-- Check GitHub Actions logs for errors.
-- Adjust cron timing slightly ahead to mitigate delays in execution.
-
----
-
-## **Future Improvements**
-- Add support for custom reminder times.
-- Log messages sent for tracking.
-- Allow users to modify reminders via Telegram commands.
-
----
-
-## **License**
-This project is licensed under the MIT License.
+## License
+This project is open-source and available under the [MIT License](LICENSE).
 
 ---
 
 ## **Credits**
 Developed with ❤️ by [Anant Goyal](https://github.com/Anant-Goyal).
+
+For questions or suggestions, feel free to reach out to Anant Goyal, the mastermind behind this project!
