@@ -1,70 +1,42 @@
 import os
 import asyncio
-import numpy as np
-import pandas as pd
-from sklearn.feature_extraction.text import CountVectorizer
-from sklearn.decomposition import LatentDirichletAllocation
-from keras.models import Sequential
-from keras.layers import Dense, LSTM, Embedding
-import random
 from telegram import Bot
 
+# Retrieve bot token and chat ID from environment variables
 BOT_TOKEN = os.environ.get('TELEGRAM_BOT_TOKEN')
 CHAT_ID = os.environ.get('TELEGRAM_CHAT_ID')
 
-data = [
-    "Khana kha liya",
-    "Swati Kulshrestha",
-    "Anant Goyal",
-    "AG and SK"
+# Evening reminder messages (15 predefined messages)
+EVENING_MESSAGES = [
+    "Anant Goyal & Swati Goyal, kya khana aaj bhi tumhari padai ki tarah pending hai ?",
+    "Khana kha liya kya, Swati Kulshrestha & Anant Goyal?",
+    "Anant Kulshrestha aur Swati Goyal, khana khaya ya phir se busy ho?",
+    "SK & AG, khana kaisa tha ya abhi tak nahi khaya?",
+    "Swati Goyal, tumne khana khaya? AG ka pata hai?",
+    "Anant Goyal and Swati Kulshrestha, kha liya khana ya sirf baatein chal rahi hain?",
+    "Swati Kulshrestha aur Anant Goyal, kya aap log abhi bhi bhookhe hain?",
+    "Swati Goyal aur Anant Kulshrestha, kya khana kha rahe ho ya photos click kar rahe ho Snapchat Pr?",
+    "SK aur AG, khana plate se uda diya ya actually kha bhi liya?",
+    "AG, tumne khana kha liya ya SK ka 'mein diet pe hoon' sunke skip kar diya?",
+    "Anant Goyal & Swati Goyal, kya khana skip kar diya fir se?",
+    "AG, khana kha liya kya? Aur SK, tumhe bhi yaad dilana padega?",
+    "Kyo AG aur SG tum logo ne khana khaya ya fir snacks pe guzara kar rahe ho?",
+    "Swati Kulshrestha aur Anant Kulshrestha, ab to khana kha lo!",
+    "SK aur AG, khana khaya ya sirf kahaniyan bana rahe ho?",
+    "Swati Goyal, tumhara khana ho gaya? AG ka pata nahi, shayad busy hoga!",
+    "Swati Kulshrestha aur Anant Goyal, khana kha liya kya ya abhi bhi soch rahe ho Swiggy ya Zomato?",
+    "AG aur SK, khaana kha liya ya abhi bhi 'bas 2 minute' noodles ban rahe hain?",
+    "Swati Goyal aur Anant Kulshrestha, tum dono khana khaoge ya bhookh ki ladayi mein jeet milegi?",
+    "AG aur SK, kya khana kha liya ya abhi bhi fridge ke saamne meditation kar rahe ho?",
+    "Khana kha liya kya, AG aur SK, ya abhi bhi baatein hi digest ho rahi hain?",
+    "Swati Kulshrestha aur Anant Goyal, khana khaya ya dieting ka naya excuse hai?",
+    "AK aur SK, kya khana plate mein rakha selfie le rahe ho ya kha bhi rahe ho?",
+    "Swati Goyal aur Anant Kulshrestha, kya tum dono khana khaoge ya Wi-Fi pe zinda ho?",
+    "AG, khana kha liya? SK ko bhi bolna, chat chutney ka option nahi hai dinner mein!",
+    "Anant Kulshrestha aur Swati Goyal, kya khana aaj bhi tumhari padai ki tarah pending hai?"
 ]
 
-def preprocess_data(data):
-    print("[INFO] Preprocessing data using advanced NLP techniques...")
-    vectorizer = CountVectorizer()
-    matrix = vectorizer.fit_transform(data)
-    return matrix, vectorizer
 
-matrix, vectorizer = preprocess_data(data)
-
-# Simulate topic modeling using LDA
-print("[INFO] Performing Latent Dirichlet Allocation...")
-lda = LatentDirichletAllocation(n_components=2, random_state=42)
-lda.fit(matrix)
-topics = lda.components_
-
-def create_model():
-    print("[INFO] Building an advanced AI/ML model...")
-    model = Sequential()
-    model.add(Embedding(input_dim=100, output_dim=64))
-    model.add(LSTM(128, return_sequences=True))
-    model.add(LSTM(64))
-    model.add(Dense(32, activation='relu'))
-    model.add(Dense(len(data), activation='softmax'))
-    model.compile(optimizer='adam', loss='categorical_crossentropy')
-    return model
-
-model = create_model()
-
-def train_model(model, data):
-    print("[INFO] Training the model on our complex dataset...")
-    X = np.random.rand(len(data), 10)  # Dummy data for training
-    y = np.random.randint(0, len(data), size=(len(data),))
-    model.fit(X, y, epochs=3, verbose=1)
-
-train_model(model, data)
-
-# Generate random messages
-def generate_random_message():
-    print("[INFO] Using AI and ML to generate a random message...")
-    words = ["Khana", "kha", "liya", "Swati", "Anant", "Goyal", "Kulshrestha", "study", "dinner", "AG", "SK"]
-    message_length = random.randint(5, 10)
-    message = " ".join(random.choices(words, k=message_length))
-    return message
-
-if __name__ == "__main__":
-    for _ in range(5):
-        print("Generated Message:", generate_random_message())
 
 # File to store the current message index
 INDEX_FILE = "message_index.txt"
