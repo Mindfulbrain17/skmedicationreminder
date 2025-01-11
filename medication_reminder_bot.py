@@ -33,9 +33,14 @@ EVENING_MESSAGES = [
     "AK aur SK, kya khana plate mein rakha selfie le rahe ho ya kha bhi rahe ho?",
     "Swati Goyal aur Anant Kulshrestha, kya tum dono khana khaoge ya Wi-Fi pe zinda ho?",
     "AG, khana kha liya? SK ko bhi bolna, chat chutney ka option nahi hai dinner mein!",
-    "Anant Kulshrestha aur Swati Goyal, kya khana aaj bhi tumhari padai ki tarah pending hai?",
     "DONE",
-    "Swati aur Anant, kya khana khaoge ya ek doosre ki shakal dekh kar hi 'delicious' feel kar rahe ho?"
+    "Swati aur Anant, kya khana khaoge ya ek doosre ki shakal dekh kar hi 'delicious' feel kar rahe ho?",
+    "Anant Goyal & Swati Goyal, kya khana aaj bhi tumhari padai ki tarah pending hai ?"
+    "AG aur SK, khana khaoge ya sirf reels dekh kar bhook mitane ka plan hai?",
+    "AK aur SK, kya notes ke beech khana rakha hai ya khana ke beech notes ban rahe hain? ",
+    "Anant, tumhare khane ka plan bhi tumhare naam ki tarah endless hai? Swati toh 15th nakshatra ki tarah bas dekh rahi hai!",
+    "Swati, tum khana kha rahi ho ya Goddess Saraswati ki tarah sirf knowledge share kar ke Anant ka patience infinite bana rahi ho "
+    
 ]
 
 
