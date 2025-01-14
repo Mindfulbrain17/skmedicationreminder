@@ -8,7 +8,7 @@ CHAT_ID = os.environ.get('TELEGRAM_CHAT_ID')
 
 # Evening reminder messages (15 predefined messages)
 EVENING_MESSAGES = [
-   "Swati Kulshrestha aur Anant Kulshrestha, ab to khana kha lo!",
+ "AG, khana kha liya kya? Aur SK, tumhe bhi yaad dilana padega?",
     "Swati, tumhare taare aur Anant ke infinite khane ko mila diya toh kya milta hai? Ek never-ending galaxy buffet!",
     "Anant aur Swati, kya khana khaoge ya ek doosre ke naam ka matlab samajh ke hi pet bhar loge?",
     "Swati Goyal, tumne khana khaya? AG ka pata hai?",
@@ -20,7 +20,6 @@ EVENING_MESSAGES = [
     "Anant Goyal & Swati Goyal, kya khana skip kar diya fir se?",
     "AG, khana kha liya kya? Aur SK, tumhe bhi yaad dilana padega?",
     "Kyo AG aur SG tum logo ne khana khaya ya fir snacks pe guzara kar rahe ho?",
-    "Swati Kulshrestha aur Anant Kulshrestha, ab to khana kha lo!",
     "SK aur AG, khana khaya ya sirf kahaniyan bana rahe ho?",
     "Swati Goyal, tumhara khana ho gaya? AG ka pata nahi, shayad busy hoga!",
     "Swati Kulshrestha aur Anant Goyal, khana kha liya kya ya abhi bhi soch rahe ho Swiggy ya Zomato?",
@@ -38,7 +37,8 @@ EVENING_MESSAGES = [
     "AK aur SK, kya notes ke beech khana rakha hai ya khana ke beech notes ban rahe hain? ",
     "Anant, tumhare khane ka plan bhi tumhare naam ki tarah endless hai? Swati toh 15th nakshatra ki tarah bas dekh rahi hai!",
     "Swati, tum khana kha rahi ho ya Goddess Saraswati ki tarah sirf knowledge share kar ke Anant ka patience infinite bana rahi ho ",
-     "Swati Goyal aur Anant Kulshrestha, tum dono khana khaoge ya bhookh ki ladayi mein jeet milegi?"
+     "Swati Goyal aur Anant Kulshrestha, tum dono khana khaoge ya bhookh ki ladayi mein jeet milegi?",
+     "Swati Kulshrestha aur Anant Kulshrestha, ab to khana kha lo!"
 ]
 
 
