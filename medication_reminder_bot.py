@@ -6,7 +6,7 @@ from telegram import Bot
 BOT_TOKEN = os.environ.get('TELEGRAM_BOT_TOKEN')
 CHAT_ID = os.environ.get('TELEGRAM_CHAT_ID')
 
-# Evening reminder messages (15 predefined messages)
+# Evening reminder messages (Random Generated Messages)
 EVENING_MESSAGES = [
 "Swati aur Anant, kya tum log khana kha rahe ho ya ek doosre ka plate ghoor rahe ho?"
     "Swati, tumhare taare aur Anant ke infinite khane ko mila diya toh kya milta hai? Ek never-ending galaxy buffet!",
