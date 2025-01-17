@@ -8,16 +8,13 @@ CHAT_ID = os.environ.get('TELEGRAM_CHAT_ID')
 
 # Evening reminder messages (Random Generated Messages)
 EVENING_MESSAGES = [
-"Swati Goyal aur Anant Kulshrestha, kya khana kha rahe ho ya photos click kar rahe ho Instagram Par?",
     "Anant aur Swati, kya khana khaoge ya ek doosre ke naam ka matlab samajh ke hi pet bhar loge?",
     "Swati Goyal, tumne khana khaya? AG ka pata hai?",
     "Anant Goyal and Swati Kulshrestha, kha liya khana ya sirf baatein chal rahi hain?",
     "Swati Kulshrestha aur Anant Goyal, kya aap log abhi bhi bhookhe hain?",
-    "Swati Goyal aur Anant Kulshrestha, kya khana kha rahe ho ya photos click kar rahe ho Snapchat Pr?",
     "SK aur AG, khana plate se uda diya ya actually kha bhi liya?",
     "AG, tumne khana kha liya ya SK ka 'mein diet pe hoon' sunke skip kar diya?",
     "Anant Goyal & Swati Goyal, kya khana skip kar diya fir se?",
-    "AG, khana kha liya kya? Aur SK, tumhe bhi yaad dilana padega?",
     "Kyo AG aur SG tum logo ne khana khaya ya fir snacks pe guzara kar rahe ho?",
     "SK aur AG, khana khaya ya sirf kahaniyan bana rahe ho?",
     "Swati Goyal, tumhara khana ho gaya? AG ka pata nahi, shayad busy hoga!",
@@ -38,6 +35,7 @@ EVENING_MESSAGES = [
     "Swati, tum khana kha rahi ho ya Goddess Saraswati ki tarah sirf knowledge share kar ke Anant ka patience infinite bana rahi ho ",
      "Swati Goyal aur Anant Kulshrestha, tum dono khana khaoge ya bhookh ki ladayi mein jeet milegi?",
      "Swati Kulshrestha aur Anant Kulshrestha, ab to khana kha lo!",
+"Swati Goyal aur Anant Kulshrestha, kya khana kha rahe ho ya photos click kar rahe ho Instagram Par?"
   "AG, khana kha liya kya? Aur SK, tumhe bhi yaad dilana padega?",
 ]
 
