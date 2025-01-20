@@ -8,15 +8,13 @@ CHAT_ID = os.environ.get('TELEGRAM_CHAT_ID')
 
 # Evening reminder messages (Random Generated Messages)
 EVENING_MESSAGES = [
-    "AG, tumne khana kha liya ya SK ka 'mein diet pe hoon' sunke skip kar diya?",
-    "Swati Goyal, tumne khana khaya? AG ka pata hai?",
+    "Swati Kulshrestha aur Anant Goyal, khana kha liya kya ya abhi bhi soch rahe ho Swiggy ya Zomato?",
     "Anant Goyal and Swati Kulshrestha, kha liya khana ya sirf baatein chal rahi hain?",
     "SK aur AG, khana plate se uda diya ya actually kha bhi liya?",
     "AG, tumne khana kha liya ya SK ka 'mein diet pe hoon' sunke skip kar diya?",
     "Anant Goyal & Swati Goyal, kya khana skip kar diya fir se?",
     "Kyo AG aur SG tum logo ne khana khaya ya fir snacks pe guzara kar rahe ho?",
     "SK aur AG, khana khaya ya sirf kahaniyan bana rahe ho?",
-    "Swati Goyal, tumhara khana ho gaya? AG ka pata nahi, shayad busy hoga!",
     "Swati Kulshrestha aur Anant Goyal, khana kha liya kya ya abhi bhi soch rahe ho Swiggy ya Zomato?",
     "AG aur SK, khaana kha liya ya abhi bhi 'bas 2 minute' noodles ban rahe hain?",
     "AG aur SK, kya khana kha liya ya abhi bhi fridge ke saamne meditation kar rahe ho?",
@@ -26,6 +24,7 @@ EVENING_MESSAGES = [
     "Swati Goyal aur Anant Kulshrestha, kya tum dono khana khaoge ya Wi-Fi pe zinda ho?",
     "AG, khana kha liya? SK ko bhi bolna, chat chutney ka option nahi hai dinner mein!",
     "DONE",
+    "AG, tumne khana kha liya ya SK ka 'mein diet pe hoon' sunke skip kar diya?",
     "Swati aur Anant, kya khana khaoge ya ek doosre ki shakal dekh kar hi 'delicious' feel kar rahe ho?",
     "Anant Goyal & Swati Goyal, kya khana aaj bhi tumhari padai ki tarah pending hai ?"
     "AG aur SK, khana khaoge ya sirf reels dekh kar bhook mitane ka plan hai?",
