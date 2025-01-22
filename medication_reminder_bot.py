@@ -8,7 +8,7 @@ CHAT_ID = os.environ.get('TELEGRAM_CHAT_ID')
 
 # Evening reminder messages (Random Generated Messages)
 EVENING_MESSAGES = [
-  "Swati, tumhare khane ki speed dekh kar lagta hai ki Goddess Saraswati bhi soch rahi hongi, 'Yeh to eternally slow hai!' Meanwhile, Anant ab tak endless wait kar raha hai!" ,
+  "AG aur SK, kya tum dono ke dinner plans mein ek rule hai—'Mera khana, tera khana hai'?",
     "Anant Goyal and Swati Kulshrestha, kha liya khana ya sirf baatein chal rahi hain?",
     "SK aur AG, khana plate se uda diya ya actually kha bhi liya?",
     "AG, tumne khana kha liya ya SK ka 'mein diet pe hoon' sunke skip kar diya?",
@@ -37,6 +37,7 @@ EVENING_MESSAGES = [
   "AG, khana kha liya kya? Aur SK, tumhe bhi yaad dilana padega?",
  "Swati Goyal, tumhara khana ho gaya? AG ka pata nahi, shayad busy hoga!",
  "Swati Kulshrestha aur Anant Goyal, khana kha liya kya ya abhi bhi soch rahe ho Swiggy ya Zomato?"
+"Swati, tumhare khane ki speed dekh kar lagta hai ki Goddess Saraswati bhi soch rahi hongi, 'Yeh to eternally slow hai!' Meanwhile, Anant ab tak endless wait kar raha hai!"
 ]
 
 
