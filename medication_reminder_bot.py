@@ -9,113 +9,59 @@ CHAT_ID = os.environ.get('TELEGRAM_CHAT_ID')
 # Evening reminder messages (Random Generated Messages)
 EVENING_MESSAGES = [
    "AG aur SK, dinner ho gaya ya ‘Aaj sirf maggi’ plan hai?",  
-   "Swati Kulshreshta and Anant Goyal, Khana kha liya kya?", 
-   "AG aur SK, kya khana fridge mein dekhke sirf ‘Aaj mann nahi hai’ bol rahe ho?",  
-   "AK, khana ho gaya ya SK ke saath discuss kar rahe ho ki aaj ka dinner kal kar lein?", 
-"Anant Goyal aur Swati Kulshrestha, kya dinner decide ho gaya ya ab tak ‘Tu bata, tu bata’ chal raha hai?",  
-   "SK aur AG, kya aaj bhi dinner ki jagah sirf chai aur biscuits pe guzara ho raha hai?",  
-   "Swati Kulshrestha aur Anant Goyal, kya khana banana start kiya ya abhi bhi recipe dhoond rahe ho?",  
-   "Swati Kulshrestha aur Anant Goyal, kya khana sirf doston ke Instagrams pe enjoy kar rahe ho ya khud bhi kuch banaya?",  
-   "Swati aur Anant, kya aaj bhi dinner plan bas ‘Jo fridge mein milega wahi’ hai?",  
-   "AG aur SK, kya khana kha liya ya sirf fridge ke saamne pose maar rahe ho?",  
-   "Swati aur Anant, khana kha liya ya phir ‘Bas 10 minute aur’ chal raha hai?",  
-   "Swati Kulshrestha aur Anant Goyal, kya aaj bhi khana sirf midnight snack ban ke raha gaya?", 
-"Swati Goyal aur Anant Kulshrestha, kya khana sirf plate mein sajaya ya actually khaya bhi?",
-   "Swati aur Anant, kya dinner decide ho gaya ya ‘Tu bata, tu bata’ chal raha hai?",  
-   "Anant aur Swati, kya dinner ke naam pe sirf chai aur biscuits pe zinda ho?",  
-   "Swati Kulshrestha aur Anant Goyal, kya khana banana start kiya ya abhi bhi recipe dhoond rahe ho?",  
-   "AK aur SK, dinner ho gaya ya abhi bhi ‘Kuch light kha lete hain’ mood mein ho?", 
-   "Swati aur Anant, khana kha liya ya firse ‘Bas 5 minute aur’ chal raha hai?",  
-   "Anant Kulshrestha aur Swati Goyal, kya aaj bhi khana dekh ke ‘Kal se pakka diet’ wala promise kiya hai?",  
-"Swati aur Anant, khana kha liya ya phir ‘Biryani ka mann ho raha hai’ soch rahe ho?",
-   "AG aur SK, kya khana khaya ya sirf water therapy chal rahi hai?",  
-"Swati Goyal aur Anant Kulshrestha, kya khana kha liya ya phir fridge ke samne deep thinking chal rahi hai?",  
-"AK aur SG, kya plate bhar ke khaya ya sirf photo kheech ke social media pe daal diya?",  
-"Anant Goyal aur Swati Kulshrestha, kya dinner ho gaya ya ‘Biryani ka mood ho raha hai’ wali dilemma chal rahi hai?",  
-"AG aur SK, khana kha liya ya abhi bhi Swiggy pe discount dhoond rahe ho?",  
-"Swati aur Anant, kya aaj bhi dinner ‘Bas ek bite aur’ pe chal raha hai?",  
-"SG aur AK, dinner ho gaya ya ‘Main khana banaun, tu saaf karega’ wali deal ab tak pending hai?",  
-"SK aur AG, kya dinner ho gaya ya abhi bhi fridge ke andar ka view analyze ho raha hai?",  
-"Swati aur Anant, kya aaj bhi khana banane se zyada order karne pe discussion hua?",  
-"AG aur SG, dinner ho gaya ya abhi bhi ‘Mann nahi kar raha’ wala excuse chal raha hai?",  
-"Anant aur Swati, kya khana plate tak aaya ya sirf dimaag mein soch rahe ho?",  
-"Swati Kulshrestha aur Anant Goyal, kya khana banana start kiya ya abhi bhi recipe dhoond rahe ho?",  
-"AK aur SK, dinner ho gaya ya abhi bhi ‘Kuch light kha lete hain’ mood mein ho?",  
-"Swati aur Anant, kya dinner decide ho gaya ya ‘Tu bata, tu bata’ ab tak chal raha hai?",  
-"Swati aur Anant, kya aaj bhi dinner ka plan ‘Dekh lenge’ hai?",  
-"Anant Goyal aur Swati Kulshrestha, kya dinner ho gaya ya ‘Bas ek aur episode dekh ke’ mood mein ho?",  
-"Swati Goyal aur Anant Kulshrestha, khana kha liya ya sirf ‘Aaj toh fasting hai’ wali baat chal rahi hai?",  
-"SG aur AK, kya khana kha liya ya sirf YouTube pe cooking videos dekh ke pet bhar raha hai?",  
-"Anant aur Swati, kya dinner ho gaya ya ‘Kuch accha khane ka mann hai’ wali feeling aa rahi hai?",  
-"AG aur SK, kya aaj bhi dinner plan bas ‘Jo fridge mein milega wahi’ hai?",  
-"Swati Kulshrestha aur Anant Goyal, kya aaj bhi khana sirf midnight snack ban ke raha gaya?",  
-"Anant aur Swati, kya khana kha liya ya abhi bhi ‘Kuch order karein?’ discussion ho raha hai?",  
-"SK aur AK, kya dinner ho gaya ya abhi bhi ‘Aaj mann nahi hai’ excuse chal raha hai?",  
-"Swati aur Anant, kya aaj ka dinner sirf sochne tak hi raha?",  
-"AG aur SK, kya dinner decide karna aaj bhi mission impossible lag raha hai?",    
-"SG aur AK, kya aaj bhi ‘Biryani ya pizza?’ discussion 2 ghante chala?",  
-"Anant aur Swati, kya dinner ka sirf photo liya ya actually kuch khaya bhi?",  
-"AG aur SK, kya aaj bhi dinner ‘Jo dikh gaya wahi best hai’ pe chal raha hai?",  
-"Swati aur Anant, kya aaj bhi dinner ‘Bhook nahi hai’ wali feeling se chalu hua?",  
-"AK aur SG, kya dinner decide karne mein itna time laga ki khud bhook mar gayi?",  
-"Anant aur Swati, kya dinner ke naam pe sirf chai aur biscuits pe zinda ho?",  
-"AG aur SK, kya aaj bhi dinner discuss karte karte bhook hi chali gayi?",  
-"Swati Kulshrestha aur Anant Goyal, kya dinner decide ho gaya ya ab tak ‘Tu bata, tu bata’ chal raha hai?",  
-"SK aur AG, kya aaj bhi dinner banana chhoda aur ‘Koi simple sa bana lo’ mode on hai?",  
-"Swati aur Anant, kya aaj bhi dinner ka sirf plan bana ya actually khana bhi khaya?",  
-"AG aur SK, kya khana khaya ya sirf paani pe chal raha hai?",  
-"Swati aur Anant, kya dinner ki recipe itni lambi thi ki bhook khatam ho gayi?",  
-"AK aur SG, kya aaj bhi dinner ka plan ‘Biryani khate hain’ pe khatam ho gaya?",  
-"Anant aur Swati, kya dinner sirf doston ke Instagrams pe enjoy kar rahe ho ya khud bhi kuch banaya?",  
-"SG aur AK, kya khana kha liya ya abhi bhi ‘Bas 10 minute aur’ mood mein ho?",  
-"AG aur SK, kya dinner ho gaya ya ‘Aaj fast kar raha hoon’ excuse chal raha hai?",  
-"Swati aur Anant, kya dinner bas ‘Kal se proper diet’ pe chala gaya?",  
-"AK aur SK, kya dinner ho gaya ya abhi bhi ‘Bhook nahi hai’ ka natak chal raha hai?",  
-    "AG aur SK, kya khana khaya ya fir fridge ko motivation speech de rahe ho?",  
-"Swati aur Anant, dinner ho gaya ya abhi bhi ‘kuch light sa kha lete hain’ soch rahe ho?",  
-"Anant Goyal aur Swati Kulshrestha, khana plate mein hai ya sirf dimaag mein?",  
-"AG aur SK, kya aaj bhi dinner ka plan sirf ‘sochne’ tak limited hai?",   
-"Swati aur Anant, khana plate se uda diya ya actually kha bhi liya?",  
-"AG aur SK, kya tum dono ke dinner plans mein ek rule hai—'Mera khana, tera khana hai'?",  
-"AG aur SK, khana kha liya ya sirf kahaniyan digest ho rahi hain?",  
-"Swati Kulshrestha aur Anant Goyal, khana ho gaya ya abhi bhi Swiggy ka discount code dhoond rahe ho?",  
-"AG aur SK, kya aaj dinner ki jagah sirf memes consume ho rahe hain?",  
-"Swati aur Anant, kya aaj bhi dinner ka menu 'Jo mil gaya wahi best hai' hai?",  
-"AG aur SK, khana kha liya ya fridge ke andar ka view analyze kar rahe ho?",  
-"Swati aur Anant, dinner ho gaya ya bas good vibes aur chai pe chal raha hai?",  
-"Anant Goyal aur Swati Kulshrestha, kya aaj bhi dinner ‘kal se pakka’ wale plans mein hai?",  
-"AG aur SK, dinner ho gaya ya firse snacks pe compromise ho raha hai?", 
-"AG aur SK, kya dinner ka matlab aaj bhi sirf chai aur biscuits hai?",  
-"Swati aur Anant, khana kha liya ya phir fridge ke samne bas ‘Soch rahe hain’ mode on hai?",  
-"AG aur SK, khana plate mein tha ya sirf doston ke WhatsApp messages mein discuss ho raha tha?",  
-"Swati aur Anant, kya dinner decide ho gaya ya ‘Tu bata, tu bata’ chal raha hai?",  
-"AG aur SK, kya khana fridge mein sirf storage ke liye rakha hai ya actually khana bhi hai?",  
-"Swati aur Anant, dinner ho gaya ya fir 'Kuch accha khaane ka mann ho raha hai' wali feeling aa rahi hai?",  
-"AG aur SK, kya aaj bhi sirf ‘Kuch halka phulka kha lete hain’ plan hai?",  
-"Swati aur Anant, khana khaya ya sirf food blogs scroll karte reh gaye?",  
-"AG aur SK, dinner ho gaya ya ‘Pizza order karein?’ discussion ab tak chal raha hai?",  
-"Swati aur Anant, kya khana microwave mein garam karte karte thanda kar diya?",  
-"AG aur SK, dinner ho gaya ya sirf ‘Aaj diet shuru karni hai’ discuss kar rahe ho?",  
-"Swati aur Anant, khana ho gaya ya fridge ko sirf emotional support ke liye khol rahe ho?",  
-"AG aur SK, kya dinner ke naam pe sirf energy drink pe survive kar rahe ho?",  
-"AG aur SK, dinner ho gaya ya abhi bhi ‘Main khana banata hoon, tu saaf karega’ wali deal chal rahi hai?",  
-"Swati aur Anant, kya aaj dinner ka bhi vlog banane ka plan hai?",  
-"Swati aur Anant, dinner ho gaya ya ‘Aaj fast kar raha hoon’ excuse chal raha hai?",  
-"AG aur SK, kya dinner sirf ‘Jo bacha hai wahi khana padega’ mode pe hai?",  
-"Swati aur Anant, kya khana banana start kiya ya abhi bhi recipes dhoond rahe ho?",  
-"AG aur SK, dinner ho gaya ya ‘Bhook toh lagi hai par uthne ka mann nahi hai’ mode on hai?",  
-"Swati aur Anant, kya khana sirf doston ke Instagrams pe enjoy kar rahe ho ya khud bhi kuch banaya?",  
-"AG aur SK, khana ho gaya ya ‘Abhi tak decide nahi kiya’ zone mein ho?",  
-"Swati aur Anant, kya aaj bhi dinner ke naam pe sirf Maggi ka plan hai?",  
-"AG aur SK, kya khana kha liya ya fridge ke samne sirf deep thoughts le rahe ho?",  
-"Swati aur Anant, dinner ho gaya ya sirf online food delivery apps explore kar rahe ho?",  
-"AG aur SK, kya aaj bhi sirf ‘Bread butter se kaam chala lete hain’ plan hai?",  
-"Swati aur Anant, khana kha liya ya phirse ‘Chal chai peete hain’ mood on hai?",  
-"AG aur SK, kya dinner ka sirf photo liya ya actually khaya bhi?",  
-"Swati aur Anant, kya aaj ka dinner bas ‘Kal se proper diet’ pe chala gaya?",  
-"AG aur SK, kya khana ho gaya ya abhi bhi ‘Bhook nahi hai’ jhooth chal raha hai?",  
-"Swati aur Anant, dinner ho gaya ya ‘Bas ek aur episode dekh ke’ wala mood hai?",  
-
+"AG aur SK, kya khana fridge mein dekh ke 'Aaj mann nahi hai' bol rahe ho?"
+"SK aur AG, khana khaya ya sirf kahaniyan bana rahe ho?"
+"Swati Kulshreshta and Anant Goyal, dinner ka status update do – kha liya ya sirf Insta selfies?"
+"AG aur SK, kya khana plate mein aaya ya abhi bhi 'microwave marathons' chal rahe hain?"
+"Swati aur Anant, aaj dinner mein khana hai ya phir 'Swiggy ke deals' ka naya twist?"
+"AG, SK, khana kha liya ya abhi bhi 'order cancel' ka button dabaye hue ho?"
+"Swati Kulshreshta and Anant Goyal, dinner complete hua ya abhi bhi fridge ke saath flirting chal rahi hai?"
+"AG aur SK, aaj khana plate mein hai ya sirf 'food delivery ka pyaar' chalu hai?"
+"Swati aur Anant, khana kha liya ya phir Swiggy-Zomato ke beech decision pending hai?"
+"AG aur SK, dinner ka plan set hai ya abhi bhi 'maggi ke aashiq' ho?"
+"Swati Kulshreshta and Anant Goyal, dinner ko leke kya agenda hai – khana khaoge ya TV remote chhodega?"
+"AG aur SK, kya khana aaj bhi fridge ke saath flirt kar raha hai ya aap dono ne usse adopt kar liya?"
+"Swati aur Anant, dinner ka scene hai ya abhi bhi 'leftover' ka plan hai?"
+"AG, SK, khana khaya ya bas fridge ke magnets ko admire kiya?"
+"Swati Kulshreshta and Anant Goyal, dinner ho gaya ya abhi bhi 'chef mode on' mein ho?"
+"AG aur SK, aaj dinner mein khana hai ya sirf recipe books ka collection ban raha hai?"
+"Swati aur Anant, kya aap log dinner ke liye cooking show dekh rahe ho ya khana bana rahe ho?"
+"AG, SK, dinner complete hua ya aaj bhi 'snack time' ka extension chal raha hai?"
+"Swati Kulshreshta and Anant Goyal, khana kha liya ya abhi bhi microwave se battle kar rahe ho?"
+"AG aur SK, dinner plan clear hai ya abhi bhi 'delivery guy ke intezaar mein' ho?"
+"Swati aur Anant, dinner ka progress report do – khana plate mein aaya ya abhi bhi in queue hai?"
+"AG, SK, aaj dinner mein khana hai ya 'pyaar ka tarka' sirf conversation mein hai?"
+"Swati Kulshreshta and Anant Goyal, dinner pe khana hai ya abhi bhi 'zero calorie' ka excuse chal raha hai?"
+"AG aur SK, kya dinner ke liye khana hai ya 'order tracking app' hi dekh rahe ho?"
+"Swati aur Anant, dinner ka naya twist hai – khana real hai ya just a delivery tracker?"
+"AG, SK, dinner table ready hai ya abhi bhi 'kitchen sink drama' chal raha hai?"
+"Swati Kulshreshta and Anant Goyal, dinner mein khana hai ya aap log 'dieting season' mein phase gaye ho?"
+"AG aur SK, khana kha liya ya abhi bhi 'tiffin service' ki galiyon mein ghoom rahe ho?"
+"Swati aur Anant, dinner pe khana hai ya abhi bhi 'recipe remix' soch rahe ho?"
+    "Swati Kulshreshta and Anant Goyal, khana kha liya kya dono ne?"
+"AG, SK, dinner complete hai ya aaj bhi 'snackathon' ka plan hai?"
+"Swati Kulshreshta and Anant Goyal, kya dinner pe khana serve hua ya abhi bhi 'kitchen chaos' hai?"
+"AG aur SK, dinner mein khana aaya ya abhi bhi 'cooking challenge' ka tension hai?"
+"Swati aur Anant, aaj dinner pe khana hai ya sirf 'selfie mode on' hai?"
+"AG, SK, aaj dinner plan mein khana hai ya sirf 'hunger ki baatein' chal rahi hain?"
+"Swati Kulshreshta and Anant Goyal, dinner ho gaya ya abhi bhi 'order in process' ka suspense hai?"
+"AG aur SK, dinner table par khana hai ya abhi bhi 'food festival in progress' ka wait hai?"
+"Swati aur Anant, kya aaj dinner mein khana hai ya abhi bhi 'kitchen ke muse' ban rahe ho?"
+"AG, SK, dinner complete hua ya aaj bhi 'gastronomy experiment' chal raha hai?"
+"Swati Kulshreshta and Anant Goyal, khana plate mein hai ya abhi bhi 'culinary adventure' ka episode chal raha hai?"
+"AG aur SK, dinner ka scene hai ya aaj bhi 'leftover treasure hunt' hai?"
+"Swati aur Anant, aaj dinner pe khana hai ya sirf 'online food reviews' dekh rahe ho?"
+"AG, SK, dinner ka update do – khana kha liya ya abhi bhi 'kitchen me baatein' chal rahi hain?"
+"Swati Kulshreshta and Anant Goyal, aaj dinner mein khana hai ya abhi bhi 'food order pending' ka status hai?"
+"AG aur SK, dinner pe khana aaya ya abhi bhi 'snack mode on' ka option hai?"
+"Swati aur Anant, dinner complete hua ya abhi bhi 'kitchen ki kahaniyan' likh rahe ho?"
+"AG, SK, khana kha liya ya abhi bhi 'cooking marathon' chal raha hai?"
+"Swati Kulshreshta and Anant Goyal, dinner ka plan clear hai ya abhi bhi 'food delivery saga' chal raha hai?"
+"AG aur SK, dinner table par khana hai ya abhi bhi 'order waiting game' chal raha hai?"
+"Swati aur Anant, aaj dinner mein khana hai ya abhi bhi 'fridge ko admire kar rahe ho' mode on hai?"
+"AG, SK, dinner complete hua ya aaj bhi 'hunger ki gaadi' chal rahi hai?"
+"Swati Kulshreshta and Anant Goyal, aaj dinner ke liye khana hai ya abhi bhi 'tasty talk show' chal raha hai?"
+"AG aur SK, dinner update do – khana plate mein hai ya abhi bhi 'food delivery ka suspense' hai?"
     "DONE",
      "Swati Kulshrestha aur Anant Goyal, dinner ho gaya ya abhi bhi WhatsApp pe memes digest kar rahe ho?",  
        "Anant Goyal & Swati Goyal, kya khana skip kar diya fir se?",
