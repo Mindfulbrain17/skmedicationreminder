@@ -28,5 +28,12 @@ jobs:
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-          MESSAGE_INDEX: 2
-        run: python medication_reminder_bot.py
+        run: python medication_reminder.py
+
+      - name: Commit updated message_index.txt
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add message_index.txt
+          git commit -m "Update message_index.txt" || echo "No changes to commit"
+          git push
