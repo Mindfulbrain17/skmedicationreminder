@@ -8,8 +8,7 @@ CHAT_ID = os.environ.get('TELEGRAM_CHAT_ID')
 
 # Evening reminder messages (Random Generated Messages)
 EVENING_MESSAGES = [
-   "Swati Kulshreshta and Anant Goyal, Khana kha liya kya?",  
-   "Swati Kulshreshta and Anant Goyal, Khana kha liya kyaa?",  
+   "AG aur SK, dinner ho gaya ya ‘Aaj sirf maggi’ plan hai?",  
    "Swati Kulshreshta and Anant Goyal, Khana kha liya kya?", 
    "AG aur SK, kya khana fridge mein dekhke sirf ‘Aaj mann nahi hai’ bol rahe ho?",  
    "AK, khana ho gaya ya SK ke saath discuss kar rahe ho ki aaj ka dinner kal kar lein?", 
@@ -50,7 +49,6 @@ EVENING_MESSAGES = [
 "Anant aur Swati, kya dinner ho gaya ya ‘Kuch accha khane ka mann hai’ wali feeling aa rahi hai?",  
 "AG aur SK, kya aaj bhi dinner plan bas ‘Jo fridge mein milega wahi’ hai?",  
 "Swati Kulshrestha aur Anant Goyal, kya aaj bhi khana sirf midnight snack ban ke raha gaya?",  
-"AG aur SG, dinner ho gaya ya ‘Aaj sirf maggi’ plan hai?",  
 "Anant aur Swati, kya khana kha liya ya abhi bhi ‘Kuch order karein?’ discussion ho raha hai?",  
 "SK aur AK, kya dinner ho gaya ya abhi bhi ‘Aaj mann nahi hai’ excuse chal raha hai?",  
 "Swati aur Anant, kya aaj ka dinner sirf sochne tak hi raha?",  
@@ -154,7 +152,6 @@ EVENING_MESSAGES = [
 ]
 
 
-
 # File to store the current message index
 INDEX_FILE = "message_index.txt"
 
@@ -167,14 +164,14 @@ def get_next_message_index():
     except (FileNotFoundError, ValueError):
         # If the file doesn't exist or is invalid, start from the first message
         index = 0
-
-    # Increment the index and loop back to 0 after 15 messages
+    
+    # Increment the index and loop back to 0 after reaching the end of the list
     next_index = (index + 1) % len(EVENING_MESSAGES)
-
+    
     # Write the updated index back to the file
     with open(INDEX_FILE, "w") as file:
         file.write(str(next_index))
-
+    
     return index
 
 async def send_evening_reminder():
@@ -183,11 +180,11 @@ async def send_evening_reminder():
     if not BOT_TOKEN or not CHAT_ID:
         print("Error: Missing TELEGRAM_BOT_TOKEN or TELEGRAM_CHAT_ID.")
         return
-
+    
     # Get the current message index and corresponding message
     message_index = get_next_message_index()
     message = EVENING_MESSAGES[message_index]
-
+    
     # Initialize the bot and send the message
     bot = Bot(token=BOT_TOKEN)
     try:
