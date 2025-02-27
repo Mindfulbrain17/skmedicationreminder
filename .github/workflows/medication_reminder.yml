@@ -22,7 +22,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install python-telegram-bot
+          pip install python-telegram-bot==13.11  # Specify a compatible version
 
       - name: Send Evening Reminder
         env:
