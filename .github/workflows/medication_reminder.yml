@@ -28,7 +28,7 @@ jobs:
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-        run: python medication_reminder.py
+        run: python medication_reminder_bot.py
 
       - name: Commit updated message_index.txt
         run: |
