@@ -1,106 +1,112 @@
 # Medication Reminder Bot
 
-This project is a highly customizable Telegram bot designed to send medication reminder messages to a group or individual at a specified time daily. It is automated using GitHub Actions and supports features such as cyclic message rotation and customizable message content.
+This project is a Telegram bot that automatically sends daily medication reminders to a Telegram group at specific times. The bot ensures timely reminders without any manual intervention, leveraging a fully automated system powered by GitHub Actions.
 
-## Key Features
+---
 
-### 1. **Daily Reminder System**
-- Sends a single reminder message every day at a fixed time (8:55 PM IST / 3:25 PM UTC).
-- Reminder time is managed via GitHub Actions' cron jobs.
+## How the System Works
 
-### 2. **Rotating Messages System**
-- The bot cycles through a predefined list of 15 messages.
-- Messages are sent one by one each day.
-- After completing the 15th message, the bot starts again from the first message, ensuring continuity.
+1. **Scheduling & Automation**
+   - The bot is triggered daily by a GitHub Actions workflow (`.github/workflows/medication_reminder.yml`) at 8:55 PM IST (3:25 PM UTC).
+   - No manual action is required once setup is complete.
 
-### 3. **Customizable Messages**
-- Users can easily modify the 15 predefined messages in the `EVENING_MESSAGES` list of the Python script.
-- Each message is carefully crafted to ensure engagement and reminders.
+2. **Message Selection**
+   - The main script (`medication_reminder_bot.py`) maintains a list of 15 customizable messages (`EVENING_MESSAGES`).
+   - The bot reads the current message index from `message_index.txt`.
+   - Each day, it sends the message at the current index, then updates the index for the next run.
+   - When all messages are sent, the index resets to zero, creating a continuous loop.
 
-### 4. **Fully Automated**
-- The bot runs on GitHub Actions and does not require manual intervention once deployed.
-- Automatically updates the `message_index.txt` file in the repository to keep track of the next message to be sent.
+3. **Telegram API Integration**
+   - Messages are sent directly to a Telegram group or individual using the Telegram Bot API.
+   - Bot credentials (`TELEGRAM_BOT_TOKEN` and `TELEGRAM_CHAT_ID`) are securely stored as GitHub repository secrets.
 
-### 5. **Telegram API Integration**
-- Uses the Telegram Bot API to send messages to a specified chat group or individual.
-- Bot token and chat ID are securely managed using GitHub Secrets.
+---
 
-### 6. **Lightweight and Efficient**
-- Minimal dependencies (`python-telegram-bot` library).
-- Designed to be simple and highly maintainable.
+## Project Files and Their Use Cases
+
+| File                                       | Purpose & Use Case                                                                      |
+|---------------------------------------------|----------------------------------------------------------------------------------------|
+| `medication_reminder_bot.py`                | Main script. Reads message index, sends Telegram message, updates index for next run.   |
+| `message_index.txt`                         | Stores the index of the last sent message. Ensures the correct message sequence daily.  |
+| `.github/workflows/medication_reminder.yml` | GitHub Actions workflow configuration. Schedules and runs the bot script automatically. |
+
+---
+
+## Detailed Step-by-Step Workflow
+
+1. **GitHub Actions starts the workflow at scheduled time.**
+2. The workflow runs `medication_reminder_bot.py`.
+3. The script:
+    - Loads `EVENING_MESSAGES` (your reminder texts).
+    - Reads `message_index.txt` to determine which message to send.
+    - Sends the message via Telegram API using secrets for authentication.
+    - Increments the index and saves it back to `message_index.txt`.
+    - If index exceeds number of messages, resets to 0 for cyclic reminders.
+
+---
 
 ## Setup Instructions
 
-### Prerequisites
-1. A Telegram bot token obtained from the [BotFather](https://core.telegram.org/bots#botfather).
-2. The chat ID of the group or individual where the reminders will be sent.
-3. A GitHub repository to host the project.
+1. **Prerequisites**
+    - Telegram bot token (from BotFather).
+    - Chat ID for your group or self.
+    - GitHub repository to host the code.
 
-### Steps to Deploy
+2. **Clone and Configure**
+    ```bash
+    git clone https://github.com/Mindfulbrain17/skmedicationreminder.git
+    cd skmedicationreminder
+    ```
+    - Edit `EVENING_MESSAGES` in `medication_reminder_bot.py` for your custom reminders.
 
-1. **Clone the Repository**
-   ```bash
-   git clone https://github.com/your-username/medication-reminder-bot.git
-   cd medication-reminder-bot
-   ```
+3. **Add GitHub Secrets**
+    - Go to repository Settings > Secrets and variables > Actions > New repository secret.
+    - Add:
+        - `TELEGRAM_BOT_TOKEN`
+        - `TELEGRAM_CHAT_ID`
 
-2. **Modify the Message List**
-   Update the `EVENING_MESSAGES` list in `medication_reminder_bot.py` with your custom messages.
+4. **Push Code**
+    - Commit and push your changes.
 
-3. **Add Secrets to GitHub**
-   - Navigate to your repository on GitHub.
-   - Go to **Settings > Secrets and variables > Actions > New repository secret**.
-   - Add the following secrets:
-     - `TELEGRAM_BOT_TOKEN`: Your Telegram bot token.
-     - `TELEGRAM_CHAT_ID`: The chat ID of the recipient group or individual.
+5. **Automation**
+    - The workflow is ready to run daily as scheduled.
 
-4. **Push the Code to GitHub**
-   Commit and push the modified code to your GitHub repository.
-
-5. **Set Up GitHub Actions Workflow**
-   The workflow is already configured in `.github/workflows/medication_reminder.yml` to run daily at 8:55 PM IST (3:25 PM UTC).
-
-### Project Files
-
-- `medication_reminder_bot.py`: The main script for sending Telegram messages.
-- `message_index.txt`: Keeps track of the last message sent (automatically updated by the script).
-- `.github/workflows/medication_reminder.yml`: GitHub Actions workflow configuration.
-
-## How It Works
-
-1. **Message Sending Logic**
-   - The bot reads the current `message_index` from `message_index.txt`.
-   - Sends the message corresponding to that index from the `EVENING_MESSAGES` list.
-   - Updates `message_index.txt` to the next index.
-
-2. **Cyclic Messaging**
-   - When the `message_index` exceeds the number of messages in `EVENING_MESSAGES`, it resets to `0`, ensuring the messages loop back to the beginning.
-
-3. **GitHub Actions Automation**
-   - The workflow runs the Python script daily at the scheduled time.
-   - Ensures consistent message delivery without manual intervention.
+---
 
 ## Example Messages
-Here are some examples of the rotating evening messages:
 
+Some of the rotating messages (customizable):
 - "X and Y, have you eaten dinner yet, or are you still scrolling through memes?"
 - "X, did you remind Y to have dinner, or are you both skipping it again?"
-- "X and Y, what’s cooking? Hopefully, not just excuses!"
 - "Y, remind X to have dinner. It's a team effort!"
 
-You can replace these with your own custom messages as per your needs.
+---
+
+## Minute-to-Minute Details
+
+- **Fully Automated:** No manual intervention after setup.
+- **Message Loop:** Ensures variety and continuity.
+- **Easy Customization:** Just edit the message list in Python script.
+- **Secure:** Credentials are managed via GitHub Secrets.
+- **Efficient:** Minimal dependencies, fast execution, and easily maintainable.
+
+---
 
 ## Future Improvements
-- Add support for sending completely random messages from the list instead of cycling through them sequentially.
-- Implement a web interface for managing messages and schedules.
-- Enhance logging and monitoring capabilities for debugging and analytics.
+
+- Option for random message selection.
+- Web interface for editing messages/schedules.
+- Enhanced logging and analytics.
+
+---
 
 ## License
+
 This project is open-source and available under the [MIT License](LICENSE).
 
 ---
 
-## **Credits**
-Developed with ❤️ by [Anant Goyal](https://github.com/Anant-Goyal).
+## Credits
 
-For questions or suggestions, feel free to reach out to Anant Goyal, the mastermind behind this project!
+Developed with ❤️ by [Anant Goyal](https://github.com/Anant-Goyal).
+For questions or suggestions, feel free to reach out!
